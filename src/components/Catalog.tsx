@@ -18,7 +18,7 @@ const categories = [
 const products = [
     {
       id: 3887120770,
-      categoryId: 2,
+      categoryId: 5,
       name: 'Alas',
       price: 5.55,
       image: '/pics/products/ALAS.jpg'
@@ -116,7 +116,7 @@ const products = [
     },
     {
       id: 3888107437,
-      categoryId: 3,
+      categoryId: 5,
       name: 'Cordon Bleu',
       price: 21.04,
       image: '/pics/products/CORDON BLEU.jpg'
@@ -179,7 +179,7 @@ const products = [
     },
     {
       id: 3855306530,
-      categoryId: 3,
+      categoryId: 5,
       name: 'Hamburguesa de Brisket',
       price: 11.88,
       image: '/pics/products/HAMBURGUESA DE BRISKET.jpg'
@@ -214,14 +214,14 @@ const products = [
     },
     {
       id: 3873946785,
-      categoryId: 3,
+      categoryId: 5,
       name: 'Medallones',
       price: 14.94,
       image: '/pics/products/MEDALLONES.jpg'
     },
     {
       id: 3887491371,
-      categoryId: 3,
+      categoryId: 5,
       name: 'Medallones de Pollo',
       price: 17.57,
       image: '/pics/products/MEDALLONES DE POLLO.jpg'
@@ -242,7 +242,7 @@ const products = [
     },
     {
       id: 3869324809,
-      categoryId: 3,
+      categoryId: 5,
       name: 'Milanesa Empanizada',
       price: 11.52,
       image: '/pics/products/MILANESA EMPANIZADA.jpg'
@@ -277,14 +277,14 @@ const products = [
     },
     {
       id: 3887798031,
-      categoryId: 3,
+      categoryId: 5,
       name: 'Nuggets',
       price: 14.52,
       image: '/pics/products/NUGGETS.jpg'
     },
     {
       id: 3852519087,
-      categoryId: 3,
+      categoryId: 5,
       name: 'Pallar Res',
       price: 16.35,
       image: '/pics/products/PALLAR RES.jpg'
@@ -333,7 +333,7 @@ const products = [
     },
     {
       id: 3860721986,
-      categoryId: 3,
+      categoryId: 5,
       name: 'Pollo Relleno',
       price: 21.76,
       image: '/pics/products/POLLO RELLENO.jpg'
@@ -375,7 +375,7 @@ const products = [
     },
     {
       id: 3875178554,
-      categoryId: 3,
+      categoryId: 5,
       name: 'Roastbeef',
       price: 20.98,
       image: '/pics/products/ROASTBEEF.jpg'
@@ -417,7 +417,7 @@ const products = [
     },
     {
       id: 3851899238,
-      categoryId: 3,
+      categoryId: 5,
       name: 'Tender',
       price: 11.52,
       image: '/pics/products/TENDER.jpg'
@@ -457,7 +457,9 @@ export default function ResponsiveProductCatalog() {
   const isSmallScreen = useMediaQuery({ maxWidth: 640 })
 
   useEffect(() => {
-    setIsMounted(true)
+    setTimeout(() => {
+      setIsMounted(true)
+    },500);
   }, [])
 
   const handleCategoryChange = (value: string) => {
@@ -507,42 +509,52 @@ export default function ResponsiveProductCatalog() {
 
   return (
     <div className="container mx-auto px-4 py-8 sm:px-6 lg:px-8">
-      <h1 className="Logo text-6xl md:text-8xl lg:text-9xl text-white mb-6 text-center">Productos</h1>
-      
-      <Tabs value={selectedCategory} onValueChange={handleCategoryChange}>
-        {renderCategorySelector()}
-        
-        {categories.map((category) => (
-          <TabsContent key={category.id} value={category.id.toString()}>
-            <Card className='bgi'>
-              <CardHeader></CardHeader>
-              <CardContent>
-                <ScrollArea className="h-full w-full">
-                  <div className="grid grid-cols-1 justify-evenly sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 ">
-                    {products
-                      .filter((product) => product.categoryId === parseInt(selectedCategory))
-                      .map((product) => (
-                        <Card key={product.id} className="flex flex-col justify-between">
-                          <CardContent className="p-4">
-                            <div className="aspect-square relative mb-2">
-                              <img onError={onErrorImage}
-                                src={product.image} 
-                                alt={product.name} 
-                                className="w-full text-muted-foreground h-full object-cover rounded-md"
-                              />
-                            </div>
-                            <h3 className="text-lg mb-1">{product.name}</h3>
-                            <p className="text-sm text-muted-foreground">${product.price.toFixed(2)}</p>
-                          </CardContent>
-                        </Card>
-                      ))}
-                  </div>
-                </ScrollArea>
-              </CardContent>
-            </Card>
-          </TabsContent>
-        ))}
-      </Tabs>
+      {
+        !isMounted && 
+        <div className='flex w-screen h-screen justify-center mt-[250px]'>
+          <span className={"Loader"}></span>
+        </div>
+      }
+      {
+        isMounted &&
+        <>
+          <h1 className="Logo text-6xl md:text-8xl lg:text-9xl text-white mb-6 text-center">Productos</h1>
+          <Tabs value={selectedCategory} onValueChange={handleCategoryChange}>
+            {renderCategorySelector()}
+            
+            {categories.map((category) => (
+              <TabsContent key={category.id} value={category.id.toString()}>
+                <Card className='bgi'>
+                  <CardHeader></CardHeader>
+                  <CardContent>
+                    <ScrollArea className="h-full w-full">
+                      <div className="grid grid-cols-1 justify-evenly sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 ">
+                        {products
+                          .filter((product) => product.categoryId === parseInt(selectedCategory))
+                          .map((product) => (
+                            <Card key={product.id} className="flex flex-col justify-between">
+                              <CardContent className="p-4">
+                                <div className="aspect-square relative mb-2">
+                                  <img onError={onErrorImage}
+                                    src={product.image} 
+                                    alt={product.name} 
+                                    className="w-full text-muted-foreground h-full object-cover rounded-md"
+                                  />
+                                </div>
+                                <h3 className="text-lg mb-1">{product.name}</h3>
+                                <p className="text-sm text-muted-foreground">${product.price.toFixed(2)}</p>
+                              </CardContent>
+                            </Card>
+                          ))}
+                      </div>
+                    </ScrollArea>
+                  </CardContent>
+                </Card>
+              </TabsContent>
+            ))}
+          </Tabs>
+        </>
+      }
     </div>
   )
 }

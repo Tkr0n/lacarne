@@ -1,6 +1,8 @@
 ---
 ---
-
+<div id="loader" class='flex w-screen h-screen justify-center mt-[250px]'>
+    <span class="Loader"></span>
+</div>
 <div class="flex flex-wrap md:justify-center lg:justify-around max-w-full px-10 mt-16">
     <div class="mt-20 mb-5 w-screen text-center">
         <h1 class="uppercase text-pop-up-top text-balance text-gray-200 text-center text-6xl md:text-8xl Logo">Somos diferentes al resto</h1>
@@ -27,3 +29,11 @@
     </div>
 
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get a reference to the div you want to hide
+        const divToHide = document.getElementById('loader');
+        divToHide!.style.display = 'none';
+    });
+</script>
