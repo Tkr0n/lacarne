@@ -12,6 +12,7 @@ const categories = [
   { id: 2, name: 'Pollo'},
   { id: 3, name: 'Premium'},
   { id: 4, name: 'Cerdo'},
+  { id: 5, name: 'Preparados'},
 ]
 
 const products = [
@@ -52,28 +53,28 @@ const products = [
     },
     {
       id: 3866384646,
-      categoryId: 3,
+      categoryId: 5,
       name: 'Brocheta de Cerdo',
       price: 14.61,
       image: '/pics/products/BROCHETA DE CERDO.jpg'
     },
     {
       id: 3885513990,
-      categoryId: 3,
+      categoryId: 5,
       name: 'Brocheta de Pollo',
       price: 15.16,
       image: '/pics/products/BROCHETA DE POLLO.jpg'
     },
     {
       id: 3887491373,
-      categoryId: 3,
+      categoryId: 5,
       name: 'Brocheta de Solomo',
       price: 21.9,
       image: '/pics/products/BROCHETA DE SOLOMO.jpg'
     },
     {
       id: 3885050169,
-      categoryId: 3,
+      categoryId: 5,
       name: 'Brocheta Mixta',
       price: 19.04,
       image: '/pics/products/BROCHETA MIXTA.jpg'
@@ -122,7 +123,7 @@ const products = [
     },
     {
       id: 3884586863,
-      categoryId: 3,
+      categoryId: 1,
       name: 'Costilla',
       price: 7.78,
       image: '/pics/products/COSTILLA.jpg'
@@ -165,9 +166,9 @@ const products = [
     {
       id: 3863906636,
       categoryId: 1,
-      name: 'Ganzo',
+      name: 'Ganso',
       price: 14.98,
-      image: '/pics/products/GANZO.jpg'
+      image: '/pics/products/GANSO.jpg'
     },
     {
       id: 3862560403,
@@ -200,9 +201,9 @@ const products = [
     {
       id: 3855769647,
       categoryId: 1,
-      name: 'Lomo Seleccionado',
+      name: 'Lomito',
       price: 17.92,
-      image: '/pics/products/LOMO SELECCIONADO.jpg'
+      image: '/pics/products/LOMITO.jpg'
     },
     {
       id: 3868862331,
@@ -396,17 +397,17 @@ const products = [
     {
       id: 3873111379,
       categoryId: 1,
-      name: 'Stroganoff',
+      name: 'Strogonoff',
       price: 15.58,
-      image: '/pics/products/STROGANOFF.jpg'
+      image: '/pics/products/STROGONOFF.jpg'
     },
-    {
-      id: 3865920517,
-      categoryId: 2,
-      name: 'Stroganoff',
-      price: 10.56,
-      image: '/pics/products/STROGANOFF.jpg'
-    },
+    // {
+    //   id: 3865920517,
+    //   categoryId: 2,
+    //   name: 'Stroganoff',
+    //   price: 10.56,
+    //   image: '/pics/products/STROGONOFF.jpg'
+    // },
     {
       id: 3872956846,
       categoryId: 3,
@@ -491,7 +492,7 @@ export default function ResponsiveProductCatalog() {
       )
     } else {
       return (
-        <TabsList className="grid h-full w-full grid-cols-4 mb-6">
+        <TabsList className="grid h-full w-full grid-cols-5 mb-6">
           {categories.map((category) => (
             <TabsTrigger key={category.id} value={category.id.toString()} className="text-xs sm:text-sm flex flex-col sm:flex-row items-center justify-center sm:justify-start p-2 sm:p-4">
               <div className="w-full text-center">
