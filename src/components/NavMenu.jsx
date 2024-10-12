@@ -38,6 +38,9 @@ export default function Component() {
             <span className="sr-only">La Carne</span>
           </a>
           <div className="grid gap-2 py-6">
+          <a href="/" className="flex w-full items-center py-2 text-lg font-semibold" >
+            Inicio
+            </a>
             <a href="/catalogo" className="flex w-full items-center py-2 text-lg font-semibold" >
             Catálogo
             </a>
