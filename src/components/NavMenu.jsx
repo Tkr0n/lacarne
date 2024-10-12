@@ -54,7 +54,7 @@ export default function Component() {
         </SheetContent>
       </Sheet>
       <a href="/" className="group mr-6 hidden lg:flex" >
-        <img src={"/public/Logo.svg"} className="transition-all group-hover:delay-100 group-hover:duration-500 group-hover:w-40 fill-rojo w-28"  alt="website logo" />
+        <img src={"/Logo.svg"} className="transition-all group-hover:delay-100 group-hover:duration-500 group-hover:w-40 fill-rojo w-28"  alt="website logo" />
         {/* <p className="text-3xl Logo hover:text-4xl transition-all hover:delay-100 hover:duration-500 hover:text-rojo">La Carne</p> */}
       </a>
       <nav className="ml-auto hidden lg:flex gap-6">

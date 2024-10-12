@@ -44,7 +44,7 @@
 }
 
 .bgi{
-  background-image: url('/public/pics/bg.avif');
+  background-image: url('/pics/bg.avif');
   background-size: cover;
   background-repeat: repeat-y;
 }
