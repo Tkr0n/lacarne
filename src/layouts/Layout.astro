@@ -1,6 +1,7 @@
 ---
 import '@/styles/globals.css'
-import Navbar from '@/components/NavMenu'
+import Footer from '@/components/Footer.astro'
+import {NavMenu} from '@/components/NavMenu'
 
 interface Props {
 	title: string;
@@ -20,9 +21,10 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body class="bg-zinc-950 text-white">
-		<Navbar transition:persist client:load/>
+		<NavMenu transition:persist client:load/>
 		<slot />
 	</body>
+	<Footer/>
 </html>
 <style is:global>
 	@font-face {
@@ -30,17 +32,15 @@ const { title } = Astro.props;
 		src: url('/fonts/BebasKai.ttf') format('truetype');
 		font-weight: normal;
 		font-style: normal;
-		font-display: swap;
 	}
 	@font-face {
 		font-family: 'Logo';
 		src: url('/fonts/vtks.ttf') format('truetype');
 		font-weight: normal;
 		font-style: normal;
-		font-display: swap;
 	}
 	.Logo{
-		font-family: 'Logo';
+		font-family: 'Logo','Bebas';
 	}
 	:root {
 		--accent: 136, 58, 234;
@@ -60,14 +60,34 @@ const { title } = Astro.props;
 		color-scheme: dark;
 	}
 	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
+		font-family: 'Bebas';
+	}
+
+	.group:hover > ul {
+		display: block;
+	}
+
+	.dropdown-submenu {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		background-color: #fff;
+		border: 1px solid #ddd;
+		padding: 10px;
+		width: 200px;
+		z-index: 1;
+	}
+
+	.dropdown-submenu li {
+		margin-bottom: 10px;
+	}
+
+	.dropdown-submenu a {
+		color: #333;
+		text-decoration: none;
+	}
+
+	.dropdown-submenu a:hover {
+		background-color: #f0f0f0;
 	}
 </style>

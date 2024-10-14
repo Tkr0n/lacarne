@@ -6,6 +6,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
+import "../styles/globals.css"
 
 import {Skeleton} from "@/components/ui/skeleton"
 

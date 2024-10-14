@@ -1,10 +1,10 @@
+import "../styles/globals.css"
 import { useState, useEffect } from 'react'
 import { useMediaQuery } from 'react-responsive'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { ScrollArea } from "@/components/ui/scroll-area"
+import { Card, CardContent, CardHeader } from "@/components/ui/card"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
-import "../styles/globals.css"
 
 // Mock data for categories and products
 const categories = [
@@ -446,7 +446,7 @@ const products = [
   ]
 
 const onErrorImage = (currentTarget: any) => {
-    console.log(currentTarget)
+  
     currentTarget.onerror = null;
     currentTarget.target.src = "/pics/404.png";
 }
@@ -457,6 +457,12 @@ export default function ResponsiveProductCatalog() {
   const isSmallScreen = useMediaQuery({ maxWidth: 640 })
 
   useEffect(() => {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    if (urlParams.has('Category') && parseInt(urlParams.get('Category')!.toString()) > 0 && parseInt(urlParams.get('Category')!.toString()) <= categories.length){
+      setSelectedCategory(urlParams.get('Category')!.toString());
+    }
+    
     setTimeout(() => {
       setIsMounted(true)
     },500);
