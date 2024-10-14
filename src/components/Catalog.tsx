@@ -18,7 +18,7 @@ const categories = [
 const products = [
     {
       id: 3887120770,
-      categoryId: 5,
+      categoryId: 2,
       name: 'Alas',
       price: 5.55,
       image: '/pics/products/ALAS.jpg'
