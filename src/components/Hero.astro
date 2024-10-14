@@ -1,0 +1,31 @@
+---
+import Video from './VideoBg.astro';
+import { ViewTransitions } from 'astro:transitions';
+---
+
+<div id="hero" class="relative h-[655px] overflow-y-hidden">
+  <!-- Background Video -->
+  <Video/>
+
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-black bg-opacity-75"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 flex h-full items-center p-20 justify-center">
+    <div class="text-center">
+      <img src="/Logo.svg" class="slide-bottom fill-rojo w-[456px]"  alt="website logo" />
+      <p class="slide-bottom mt-2 mb-8 text-white text-sm uppercase font-medium md:text-3xl">
+        Sentimos <span class="text-rojo">pasión</span> por las cosas bien hechas
+      </p>
+      <div class="flex gap-4 justify-center">
+        <button class="btn scale-in-top bg-rojo text-white hover:text-rojo" onclick="window.location.href='/catalogo'">
+          Ver Catálogo
+        </button>
+        <button class="btn scale-in-top bg-transparent text-white outline outline-1 hover:outline-0 hover:text-rojo" onclick="window.location.href='/nosotros'">
+          Conoce más
+        </button>
+      </div>
+    </div>
+  </div>
+  <ViewTransitions />
+</div>
